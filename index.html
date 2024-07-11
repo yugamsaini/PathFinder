@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Finder</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/utility.css">
+</head>
+<body>
+    <!-- header -->
+    <div class="template">
+        <header>
+            <nav>
+                <a href = "./index.html" class="logo">Pathfinding Visualiser</a href="">
+                <div class="btn" id = "visualize"></div>
+                <ul class="menu">
+                    <li><a href = "#"> clear path</li>
+                    <li><a href = "#"> clear board</li>
+                    <li><a href = "#"> clear generate maze</li>
+                    <li>
+                        <a href = "#"> pixel <span class="caret"></span></li>
+                            <ul class="drop-menu">
+                                <li><a href="#">14px</a></li>
+                                <li><a href="#">16px</a></li>
+                                <li><a href="#">18px</a></li>
+                                <li><a href="#">20px</a></li>
+                                <li><a href="#">22px</a></li>
+                                <li><a href="#">24px</a></li>
+                                <li><a href="#">26px</a></li>
+                            </ul>
+                    <li>
+                        <a href = "#"> speed <span class="caret"></span></li>
+                            <ul class="drop-menu">
+                                <li><a href="#">slow</a></li>
+                                <li><a href="#">normal</a></li>
+                                <li><a href="#">fast</a></li>
+                            </ul>
+                    <li>
+                        <a href = "#"> algorithms <span class="caret"></span></li>
+                            <ul class="drop-menu">
+                                <li><a href="#">BFS</a></li>
+                                <li><a href="#">Dijsktra</a></li>
+                                <li><a href="#">Greedy</a></li>
+                                <li><a href="#">A*</a></li>
+                            </ul>
+                </ul>
+
+            </nav>
+            <div class="guide-bar"></div>
+        </header>
+        <div id="board"></div>
+    </div>
+</body>
+<script> src = "app.js" </script>
+</html>
