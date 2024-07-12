@@ -87,3 +87,163 @@ body {
     text-transform: capitalize;
     font-size: 13px;
 }
+
+.blue{
+    color: var(--primary-clr);
+}
+.slide:nth-child(1){
+    background: url(../assets/tutorial/man-thinking.svg);
+}
+.slide:nth-child(2){
+    background: url(../assets/tutorial/man-with-maze.svg);
+}
+.default-bg{
+    background: url(../assets/tutorial/bg-2.svg);
+}
+.slide:last-child{
+    background: url(../assets/tutorial/man-clicking-visualize.svg);
+    background-size: 60% 60% !important;
+}
+.upper .slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    text-align: center;
+    transition: .5s ease;
+}
+.slide .img-box{
+    height: 170px;
+    width: 170px;
+    overflow: hidden;
+    transition: .3s;
+}
+.img-box.shadow{
+    box-shadow: rgba(0, 0, 0, 0.27) 0px 3px 8px;
+}
+
+.img-box.shadow:hover{
+    transform: scale(1.15);
+    box-shadow: rgba(29, 32, 34, 0.434) 0px 8px 24px;
+}
+
+.slide .img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slide h4{
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.slide p{
+    position: absolute;
+    bottom: 0;
+    margin: 0 30px;
+    font-size: 14px;
+    color: var(--light-text);
+    background-color: white;
+}
+.dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 0;
+}
+
+@keyframes shake{
+    0% { transform: scale(1);}
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.dots .dot{
+    height: 8px;
+    width: 8px;
+    border-radius: 10px;
+    background-color: var(--light-dot);
+    cursor: pointer;
+}
+.dots .dot.active{
+    transition: width 0.1s linear;
+    width: 16px;
+    height: 8px;
+    background-color: var(--primary-clr);
+}
+
+.template{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+header{
+    position: relative;
+}
+header .guide-toggle{
+    display: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--clr-navy);
+    position: relative;
+    z-index: 2;
+}
+
+#logo {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    padding: 16px 0;
+}
+
+#logo:hover{
+    color: var(--secondary-clr);
+}
+
+nav {
+    padding: 0 2vw;
+}
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: white;
+}
+.nav-menu>li>a {
+    display: inline-block;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.nav-menu>li>a.active{
+    background-color: var(--primary-clr);
+}
+
+
+.nav-menu>li>a:hover {
+    color: var(--secondary-clr);
+}
+.nav-menu>li>a.active:hover {
+    color: white;
+}
+
