@@ -320,3 +320,125 @@ nav {
     align-items: center;
     font-size: 14px;
 }
+
+/* ============= board ===================== */
+#board {
+    touch-action: none;
+    touch-action: none;
+    overflow: auto;
+}
+
+#board::-webkit-scrollbar{
+    display: none;
+}
+
+
+#board .row {
+    width: 100%;
+    display: flex;
+}
+
+#board .row .col {
+    width: 100%;
+    min-width: var(--cell-width);
+    aspect-ratio: 1;
+    border: 1px solid var(--light-line);
+    background-color: var(--cell-clr);
+}
+#board .row .col.wall{
+    border-color: var(--clr-navy);
+}
+
+
+
+@media screen and (max-width: 1024px){
+    nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .nav-menu {
+        grid-column: 1/-1;
+    }
+    .btn {
+        justify-self: start;
+    }
+}
+
+
+@media screen and (max-width: 662px){
+    #visualize {
+        justify-self: end;
+        grid-column: 3/-1;
+        width: 100%;
+        padding: 12px 0;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        min-width: 180px;
+    }
+    .card{
+        margin: 0;
+    }
+    .card .bottom .btn{
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    #logo {
+        grid-column: 1/2;
+        font-size: 16px;
+        padding: 10px 0;
+    }
+    .nav-menu {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+    }
+    .nav-menu li a{
+        width: 100%;
+        font-size: 12px;
+        padding: 8px 4px;
+    }
+    .guide li .symbol {
+        width: 12px;
+    }
+    .guide li .text{
+        font-size: 10px;
+    }
+    .guide{
+        width: 100%;
+        position: absolute;
+        background-color: white;
+        bottom: 0px;
+        margin-bottom: 0;
+        z-index: 1;
+        transition: .3s cubic-bezier(0.72, -0.01, 0.31, 0.98);
+        box-shadow: none;
+    }
+    .guide.active{
+        transform: translateY(100%);
+        box-shadow: 0px 8px 9px #49488549;
+    }
+    
+    header .guide-toggle{
+        display: block;
+        box-shadow: 0px 0px;
+        position: absolute;
+        width: 30px;
+        aspect-ratio: 1;
+        background-color: white;
+        cursor: pointer;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    
+}
+
+#pixel .drop-menu{
+    left: 0;
+}
