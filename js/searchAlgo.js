@@ -232,3 +232,97 @@ function greedy() {
     }
 }
 
+// ======================== DFS ⚙️🦾 =======================
+// ==========================================================
+const visited = new Set();
+function DFS(current) {
+    //base case
+    if (current.x === target.x && current.y === target.y) {
+        return true;
+    }
+
+    searchToAnimate.push(matrix[current.x][current.y]);
+    visited.add(`${current.x}-${current.y}`);
+
+    const neighbours = getNeighbours(current);
+
+    for (const neighbour of neighbours) {
+        if (isValid(neighbour.x, neighbour.y) &&
+            !visited.has(`${neighbour.x}-${neighbour.y}`) &&
+            !matrix[neighbour.x][neighbour.y].classList.contains('wall')) {
+            if (DFS(neighbour)) {
+                pathToAnimate.push(matrix[neighbour.x][neighbour.y]);
+                return true;
+            }
+
+        }
+    }
+
+    return false;
+}
+
+
+
+
+
+// ==========================================================
+// ================== B-iDirectional ⚙️🦾 ==================
+// ==========================================================
+
+
+function biDirectional() {
+    const queue1 = [];
+    const queue2 = [];
+    const visited1 = new Set();
+    const visited2 = new Set();
+    const parent1 = new Map();
+    const parent2 = new Map();
+
+    queue1.push(source);
+    queue2.push(target);
+    visited1.add(`${source.x}-${source.y}`);
+    visited2.add(`${target.x}-${target.y}`);
+
+    while (queue1.length > 0 && queue2.length > 0) {
+        const current1 = queue1.shift();
+        const current2 = queue2.shift();
+
+        searchToAnimate.push(matrix[current1.x][current1.y]);
+        searchToAnimate.push(matrix[current2.x][current2.y]);
+
+        // intersection detection
+        if (visited1.has(`${current2.x}-${current2.y}`)) {
+            pathToAnimate = backtrack(parent1, current2).reverse();
+            let arr = backtrack(parent2, current2);
+            pathToAnimate = pathToAnimate.concat(arr);
+            return;
+        }
+        if(visited2.has(`${current1.x}-${current1.y}`)){
+            pathToAnimate = backtrack(parent1, current1).reverse();
+            let arr = backtrack(parent2, current1);
+            pathToAnimate = pathToAnimate.concat(arr);
+            return;
+        }
+
+        const neighbour1 = getNeighbours(current1);
+        const neighbour2 = getNeighbours(current2);
+
+        visiteNeighbours(current1, neighbour1, visited1, parent1, queue1);
+        visiteNeighbours(current2, neighbour2, visited2, parent2, queue2);
+    }
+
+    function visiteNeighbours(current, neighbours, visited, parent, queue) {
+        for (const neighbour of neighbours) {
+            const key = `${neighbour.x}-${neighbour.y}`;
+            if (
+                isValid(neighbour.x, neighbour.y) &&
+                !matrix[neighbour.x][neighbour.y].classList.contains('wall') &&
+                !visited.has(key)
+            ) {
+                visited.add(key);
+                queue.push(neighbour);
+                parent.set(key, current);
+            }
+        }
+    }
+}
